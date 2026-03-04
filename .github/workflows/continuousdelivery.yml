@@ -45,6 +45,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5 # v5.0.0
         with:
-          context: /src/cicd
+          context: src/CiCd
           push: true
           tags: ${{ env.REGISTRY }}/mikl0w/${{env.IMAGE_NAME}}:latest

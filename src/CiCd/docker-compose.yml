@@ -1,22 +1,19 @@
-
-
 services:
   cicdexample:
     image: ghcr.io/mikl0w/cicdexample:latest
     restart: unless-stopped
     ports:
-     - 8001:8001
-
+      - "8001:8001"
     labels:
       com.centurylinklabs.watchtower.enable: "true"
     healthcheck:
-      test: ["CMD", "dotnet", "{Your-Entypoint.dll}"]
+      test: ["CMD", "dotnet", "CiCd.Gui.dll"]
       interval: 30s
       timeout: 3s
       retries: 3
 
   watchtower:
-    image: nickfedor/watchtower
+    image: containrrr/watchtower
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
